@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://xn--amira-gebudereiniger-jzb.de/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://xn--amira-gebudereiniger-jzb.de/leistungen/fensterreinigung</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://xn--amira-gebudereiniger-jzb.de/leistungen/buero-reinigung</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://xn--amira-gebudereiniger-jzb.de/leistungen/treppenhausreinigung</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://xn--amira-gebudereiniger-jzb.de/leistungen/unterhaltsreinigung</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://xn--amira-gebudereiniger-jzb.de/leistungen/grundreinigung</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+</urlset>

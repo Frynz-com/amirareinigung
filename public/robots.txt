@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://xn--amira-gebudereiniger-jzb.de/sitemap.xml
