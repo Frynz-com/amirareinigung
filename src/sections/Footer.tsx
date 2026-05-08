@@ -1,10 +1,10 @@
 const serviceLinks = [
-  { label: 'Fensterreinigung',     href: '/leistungen/fensterreinigung' },
-  { label: 'Büroreinigung',        href: '/leistungen/buero-reinigung' },
-  { label: 'Treppenhausreinigung', href: '/leistungen/treppenhausreinigung' },
-  { label: 'Unterhaltsreinigung',  href: '/leistungen/unterhaltsreinigung' },
-  { label: 'Grundreinigung',       href: '/leistungen/grundreinigung' },
-  { label: 'Bauendreinigung',      href: '/leistungen/bauendreinigung' },
+  { label: 'Fensterreinigung',     href: '/#services' },
+  { label: 'Büroreinigung',        href: '/#services' },
+  { label: 'Treppenhausreinigung', href: '/#services' },
+  { label: 'Unterhaltsreinigung',  href: '/#services' },
+  { label: 'Grundreinigung',       href: '/#services' },
+  { label: 'Bauendreinigung',      href: '/#services' },
 ];
 const companyLinks = [
   { label: 'Über uns',       href: '#about' },
