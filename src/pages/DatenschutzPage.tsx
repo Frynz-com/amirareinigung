@@ -21,10 +21,11 @@ const sections: Section[] = [
         type: 'address',
         lines: [
           'Amira Gebäudereinigung',
-          'Stuttgart und Umgebung',
+          'Wera Straße 53',
+          '70190 Stuttgart',
           'Telefon: 0711 27 350 523',
           'Mobil: 0172 80 60 586',
-          'E-Mail: Amirareinigung@gmail.com',
+          'E-Mail: amirareinigung@gmail.com',
         ],
       },
     ],

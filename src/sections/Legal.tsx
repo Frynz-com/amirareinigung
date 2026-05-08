@@ -1,105 +1,99 @@
-const imprintItems = [
-  ['Anbieter', 'Amira Gebäudereinigung'],
-  ['Leistungsgebiet', 'Stuttgart und Umgebung'],
-  ['Telefon', '0711 27 350 523'],
-  ['Mobil', '0172 80 60 586'],
-  ['E-Mail', 'Amirareinigung@gmail.com'],
-  ['Ladungsfähige Anschrift', 'Bitte vor Veröffentlichung ergänzen.'],
-  ['Vertretungsberechtigte Person', 'Bitte vor Veröffentlichung ergänzen.'],
-];
-
-const privacySections = [
-  {
-    title: 'Verantwortlicher',
-    text: 'Verantwortlich für die Datenverarbeitung auf dieser Website ist Amira Gebäudereinigung. Die vollständige Anschrift und vertretungsberechtigte Person sind vor Veröffentlichung zu ergänzen. Kontakt: 0711 27 350 523, 0172 80 60 586, Amirareinigung@gmail.com.',
-  },
-  {
-    title: 'Hosting und Server-Logfiles',
-    text: 'Beim Aufruf der Website werden technisch notwendige Daten verarbeitet, zum Beispiel IP-Adresse, Datum und Uhrzeit des Abrufs, Browsertyp, Betriebssystem, Referrer-URL und aufgerufene Seite. Die Verarbeitung erfolgt zur sicheren und stabilen Bereitstellung der Website auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO.',
-  },
-  {
-    title: 'Kontaktformular, Telefon und E-Mail',
-    text: 'Wenn Sie uns kontaktieren, verarbeiten wir Ihre Angaben wie Name, E-Mail-Adresse, Telefonnummer, ausgewählte Leistung und Nachricht zur Bearbeitung Ihrer Anfrage. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, soweit es um vorvertragliche oder vertragliche Maßnahmen geht, ansonsten Art. 6 Abs. 1 lit. f DSGVO.',
-  },
-  {
-    title: 'Speicherdauer',
-    text: 'Anfragedaten werden gelöscht, sobald sie für die Bearbeitung nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.',
-  },
-  {
-    title: 'Ihre Rechte',
-    text: 'Sie haben nach Maßgabe der DSGVO Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch. Zudem haben Sie das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren.',
-  },
-  {
-    title: 'Cookies und externe Dienste',
-    text: 'Diese Website setzt nur technisch notwendige Funktionen ein. Sollten später Analyse-, Karten-, Tracking- oder Marketingdienste ergänzt werden, muss diese Datenschutzerklärung vorher entsprechend erweitert werden.',
-  },
-];
-
 import { useEffect } from 'react';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, FileText } from 'lucide-react';
 
 export default function Legal() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
-    <section id="legal" className="bg-white" style={{ paddingTop: 96, paddingBottom: 100 }}>
-      <div className="max-w-[1200px] mx-auto px-5 md:px-8">
-        <a href="/" className="inline-flex items-center gap-2 font-body text-sm text-text-secondary hover:text-primary-dark transition-colors mb-10">
+    <main className="bg-[#FAFAF8]" style={{ paddingTop: 96, paddingBottom: 100 }}>
+      <div className="max-w-[900px] mx-auto px-5 md:px-8">
+
+        {/* Back */}
+        <a href="/" className="inline-flex items-center gap-2 font-body text-sm text-[#475569] hover:text-[#0F1628] transition-colors mb-10">
           <ArrowLeft size={15} />
           Zurück zur Startseite
         </a>
-        <div className="max-w-[620px] mb-12">
-          <span className="font-body font-semibold text-xs uppercase tracking-[0.08em] text-teal">
-            Rechtliches
-          </span>
-          <h2 className="font-display font-semibold text-primary-dark mt-3" style={{ fontSize: 'clamp(2rem, 3.5vw, 2.75rem)', lineHeight: 1.15 }}>
-            Impressum & Datenschutz
-          </h2>
-          <p className="font-body font-normal text-text-secondary mt-3 text-lg leading-relaxed">
-            Die folgenden Angaben sind als Website-Text vorbereitet. Anschrift und vertretungsberechtigte Person müssen vor Veröffentlichung ergänzt werden.
+
+        {/* Header */}
+        <div className="mb-12">
+          <div className="inline-flex items-center gap-2 bg-[rgba(200,16,46,0.08)] rounded-full px-4 py-1.5 mb-5">
+            <FileText size={13} className="text-[#C8102E]" />
+            <span className="font-body font-semibold text-xs text-[#C8102E] uppercase tracking-[0.08em]">Rechtliches</span>
+          </div>
+          <h1 className="font-display font-bold text-[#0F1628]" style={{ fontSize: 'clamp(2rem, 3.5vw, 2.75rem)', lineHeight: 1.1 }}>
+            Impressum
+          </h1>
+          <p className="font-body text-[#475569] mt-4 text-lg leading-relaxed max-w-[560px]">
+            Angaben gemäß § 5 DDG.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14">
-          <article id="impressum" className="scroll-mt-24">
-            <h3 className="font-display font-semibold text-2xl text-primary-dark">Impressum</h3>
-            <div className="mt-6 divide-y divide-border-light border-y border-border-light">
-              {imprintItems.map(([label, value]) => (
-                <div key={label} className="grid grid-cols-1 sm:grid-cols-[190px_1fr] gap-1 sm:gap-6 py-4">
-                  <dt className="font-body font-semibold text-sm text-primary-dark">{label}</dt>
-                  <dd className="font-body text-[15px] text-text-secondary">{value}</dd>
-                </div>
-              ))}
-            </div>
-            <div className="mt-7 space-y-5 font-body text-[15px] text-text-secondary leading-relaxed">
-              <p>
-                Angaben gemäß § 5 DDG.
-              </p>
-              <p>
-                Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV: bitte Namen und vollständige Anschrift ergänzen.
-              </p>
-              <p>
-                Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung bereit: https://ec.europa.eu/consumers/odr. Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
-              </p>
-              <p>
-                Als Diensteanbieter sind wir nach den allgemeinen Gesetzen für eigene Inhalte verantwortlich. Für externe Links übernehmen wir keine Haftung; für Inhalte verlinkter Seiten sind ausschließlich deren Betreiber verantwortlich.
-              </p>
-            </div>
-          </article>
-
-          <article id="datenschutz" className="scroll-mt-24">
-            <h3 className="font-display font-semibold text-2xl text-primary-dark">Datenschutz</h3>
-            <div className="mt-6 space-y-6">
-              {privacySections.map((section) => (
-                <div key={section.title}>
-                  <h4 className="font-body font-semibold text-base text-primary-dark">{section.title}</h4>
-                  <p className="font-body font-normal text-[15px] text-text-secondary mt-2 leading-relaxed">{section.text}</p>
-                </div>
-              ))}
-            </div>
-          </article>
+        {/* Anbieter */}
+        <div className="bg-white border border-[#EEE9E2] rounded-2xl overflow-hidden mb-8">
+          <div className="px-7 py-5 border-b border-[#F5F2EE]">
+            <p className="font-body font-semibold text-[13px] text-[#94A3B8] uppercase tracking-[0.08em]">Anbieter</p>
+          </div>
+          <div className="divide-y divide-[#F5F2EE]">
+            {[
+              ['Unternehmensname',   'Amira Gebäudereinigung'],
+              ['Anschrift',          'Wera Straße 53, 70190 Stuttgart'],
+              ['Telefon',            '0711 27 350 523'],
+              ['Mobil',              '0172 80 60 586'],
+              ['E-Mail',             'amirareinigung@gmail.com'],
+              ['Steuernummer',       '93061/27831'],
+              ['Leistungsgebiet',    'Stuttgart und Umgebung'],
+            ].map(([label, value]) => (
+              <div key={label} className="grid grid-cols-1 sm:grid-cols-[200px_1fr] gap-1 sm:gap-6 px-7 py-4">
+                <dt className="font-body font-semibold text-[14px] text-[#0F1628]">{label}</dt>
+                <dd className="font-body text-[14px] text-[#475569]">{value}</dd>
+              </div>
+            ))}
+          </div>
         </div>
+
+        {/* Weitere Angaben */}
+        <div className="bg-white border border-[#EEE9E2] rounded-2xl p-7 space-y-5 mb-8">
+          <h2 className="font-display font-semibold text-[#0F1628] text-xl mb-4">Weitere Angaben</h2>
+
+          <div>
+            <h3 className="font-body font-semibold text-[14px] text-[#0F1628] mb-1">Verantwortlich für den Inhalt</h3>
+            <p className="font-body text-[14px] text-[#475569] leading-relaxed">
+              Amira Gebäudereinigung, Wera Straße 53, 70190 Stuttgart<br />
+              (gem. § 18 Abs. 2 MStV)
+            </p>
+          </div>
+
+          <div>
+            <h3 className="font-body font-semibold text-[14px] text-[#0F1628] mb-1">Online-Streitbeilegung</h3>
+            <p className="font-body text-[14px] text-[#475569] leading-relaxed">
+              Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung bereit:{' '}
+              <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer" className="text-[#C8102E] hover:underline">
+                https://ec.europa.eu/consumers/odr
+              </a>
+              . Wir sind nicht verpflichtet, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="font-body font-semibold text-[14px] text-[#0F1628] mb-1">Haftung für Inhalte</h3>
+            <p className="font-body text-[14px] text-[#475569] leading-relaxed">
+              Als Diensteanbieter sind wir nach den allgemeinen Gesetzen für eigene Inhalte verantwortlich. Für externe Links übernehmen wir keine Haftung; für Inhalte verlinkter Seiten sind ausschließlich deren Betreiber verantwortlich.
+            </p>
+          </div>
+        </div>
+
+        {/* Link to Datenschutz */}
+        <div className="bg-[#F5F2EE] border border-[#EEE9E2] rounded-2xl p-6 flex items-center justify-between gap-4">
+          <div>
+            <p className="font-body font-semibold text-[14px] text-[#0F1628]">Datenschutzerklärung</p>
+            <p className="font-body text-[13px] text-[#64748B] mt-0.5">Informationen zur Verarbeitung Ihrer personenbezogenen Daten.</p>
+          </div>
+          <a href="/datenschutz" className="flex-shrink-0 font-body font-semibold text-sm text-white bg-[#C8102E] hover:bg-[#A50D24] px-5 py-2.5 rounded-xl transition-all">
+            Zur Datenschutzerklärung
+          </a>
+        </div>
+
       </div>
-    </section>
+    </main>
   );
 }
