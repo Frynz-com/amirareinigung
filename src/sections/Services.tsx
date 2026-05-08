@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Sun, Building, Briefcase, ArrowRight, ClipboardCheck, HardHat, Sparkles } from 'lucide-react';
+import { Sun, Building, Briefcase, ArrowRight, ClipboardCheck, HardHat, Sparkles, ArrowUpRight } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -81,15 +81,16 @@ export default function Services() {
         {/* Featured cards — cinematic */}
         <div className="srv-cards grid grid-cols-1 lg:grid-cols-2 gap-5 mb-16">
           {featuredServices.map((service) => (
-            <div
+            <a
               key={service.title}
-              className="srv-card relative overflow-hidden rounded-2xl"
+              href={service.href}
+              className="srv-card group relative overflow-hidden rounded-2xl block"
               style={{ aspectRatio: '16/10' }}
             >
               <img
                 src={service.image}
                 alt={service.title}
-                className="absolute inset-0 w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
               />
               {/* Gradient overlay */}
@@ -112,15 +113,12 @@ export default function Services() {
                 <p className="font-body text-[14px] text-white/65 mt-2 leading-relaxed max-w-[380px]">
                   {service.description}
                 </p>
-                <div className="flex flex-wrap gap-2 mt-4">
-                  {service.features.map((f) => (
-                    <span key={f} className="font-body text-[11px] text-white/70 bg-white/10 border border-white/15 px-2.5 py-1 rounded-full">
-                      {f}
-                    </span>
-                  ))}
+                <div className="flex items-center gap-1.5 mt-5 font-body font-semibold text-[13px] text-white/85 group-hover:text-white transition-colors">
+                  Mehr erfahren
+                  <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform duration-200" />
                 </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
 
@@ -132,21 +130,23 @@ export default function Services() {
           {listServices.map((service, i) => {
             const Icon = service.icon;
             return (
-              <div
+              <a
                 key={service.title}
-                className="srv-row flex items-center justify-between px-7 py-5"
+                href={service.href}
+                className="srv-row group flex items-center justify-between px-7 py-5 transition-colors hover:bg-[#FAFAF8]"
                 style={{ borderBottom: i < listServices.length - 1 ? '1px solid #F5F2EE' : 'none' }}
               >
                 <div className="flex items-center gap-5">
-                  <div className="w-9 h-9 rounded-xl bg-[#F5F2EE] flex items-center justify-center flex-shrink-0">
-                    <Icon size={16} className="text-[#64748B]" />
+                  <div className="w-9 h-9 rounded-xl bg-[#F5F2EE] group-hover:bg-[rgba(200,16,46,0.07)] flex items-center justify-center flex-shrink-0 transition-colors">
+                    <Icon size={16} className="text-[#64748B] group-hover:text-teal transition-colors" />
                   </div>
                   <div>
                     <p className="font-body font-semibold text-[15px] text-[#0F1628]">{service.title}</p>
                     <p className="font-body text-[13px] text-[#94A3B8] mt-0.5">{service.desc}</p>
                   </div>
                 </div>
-              </div>
+                <ArrowUpRight size={16} className="text-[#D4CFCA] group-hover:text-teal transition-all flex-shrink-0 ml-4" />
+              </a>
             );
           })}
         </div>
