@@ -19,7 +19,6 @@ export default function Header() {
   const [mobileOpen, setMobileOpen]   = useState(false);
   const [dropOpen, setDropOpen]       = useState(false);
   const [mobileCompOpen, setMobileCompOpen] = useState(false);
-  const [activeSection, setActiveSection]   = useState('');
   const dropRef = useRef<HTMLDivElement>(null);
 
   const handleScroll = useCallback(() => setScrolled(window.scrollY > 60), []);
@@ -29,16 +28,6 @@ export default function Header() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, [handleScroll]);
-
-  useEffect(() => {
-    const sections = document.querySelectorAll('section[id]');
-    const observer = new IntersectionObserver(
-      (entries) => entries.forEach((e) => { if (e.isIntersecting) setActiveSection(`#${e.target.id}`); }),
-      { rootMargin: '-72px 0px -50% 0px' }
-    );
-    sections.forEach((s) => observer.observe(s));
-    return () => observer.disconnect();
-  }, []);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -59,10 +48,6 @@ export default function Header() {
   };
 
   const textColor = scrolled ? 'text-[#475569] hover:text-[#0F1628]' : 'text-white/80 hover:text-white';
-  const isCompanyActive = window.location.pathname.startsWith('/ueber-uns') ||
-    window.location.pathname.startsWith('/warum-amira') ||
-    window.location.pathname.startsWith('/kundenstimmen') ||
-    window.location.pathname.startsWith('/faq');
 
   return (
     <>
@@ -96,9 +81,7 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => scrollTo(e, link.href)}
-                className={`font-body font-medium text-sm transition-colors duration-200 ${
-                  activeSection === link.href ? 'text-teal' : textColor
-                }`}
+                className={`font-body font-medium text-sm transition-colors duration-200 ${textColor}`}
               >
                 {link.label}
               </a>
@@ -108,9 +91,7 @@ export default function Header() {
             <div ref={dropRef} className="relative">
               <button
                 onClick={() => setDropOpen(!dropOpen)}
-                className={`inline-flex items-center gap-1 font-body font-medium text-sm transition-colors duration-200 ${
-                  isCompanyActive ? 'text-teal' : textColor
-                }`}
+                className={`inline-flex items-center gap-1 font-body font-medium text-sm transition-colors duration-200 ${textColor}`}
               >
                 Unternehmen
                 <ChevronDown size={14} className={`transition-transform duration-200 ${dropOpen ? 'rotate-180' : ''}`} />

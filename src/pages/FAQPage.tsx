@@ -256,12 +256,12 @@ export default function FAQPage() {
       </section>
 
       {/* CTA */}
-      <section style={{ background: '#0F1628', padding: '80px 0' }}>
+      <section style={{ background: '#F5F2EE', borderTop: '1px solid #EEE9E2', padding: '80px 0' }}>
         <div className="max-w-[700px] mx-auto px-5 md:px-8 text-center">
-          <h2 className="font-display font-bold text-white mb-4" style={{ fontSize: 'clamp(1.5rem, 2.8vw, 2rem)', lineHeight: 1.15 }}>
+          <h2 className="font-display font-bold text-[#0F1628] mb-4" style={{ fontSize: 'clamp(1.5rem, 2.8vw, 2rem)', lineHeight: 1.15 }}>
             Bereit für professionelle Reinigung?
           </h2>
-          <p className="font-body text-white/65 text-[15px] mb-8 leading-relaxed">
+          <p className="font-body text-[#475569] text-[15px] mb-8 leading-relaxed">
             Kostenloses Angebot in 24 Stunden — unverbindlich und auf Ihr Objekt zugeschnitten.
           </p>
           <a
