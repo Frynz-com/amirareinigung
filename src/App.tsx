@@ -18,6 +18,7 @@ import FloatingActions from './components/FloatingActions';
 import CookieBanner from './components/CookieBanner';
 import ServicePage from './pages/ServicePage';
 import AboutPage from './pages/AboutPage';
+import DatenschutzPage from './pages/DatenschutzPage';
 import WhyUsPage from './pages/WhyUsPage';
 import KundenstimmenPage from './pages/KundenstimmenPage';
 import FAQPage from './pages/FAQPage';
@@ -69,7 +70,8 @@ export default function App() {
     return match ? servicePageMap.get(match[1] as ServiceSlug) : undefined;
   }, [path]);
 
-  const isLegal = path === '/impressum' || path === '/datenschutz';
+  const isLegal = path === '/impressum';
+  const isDatenschutz = path === '/datenschutz';
   const isAbout = path === '/ueber-uns';
   const isWhyUs = path === '/warum-amira';
   const isKundenstimmen = path === '/kundenstimmen';
@@ -132,7 +134,7 @@ export default function App() {
   return (
     <div className="font-body">
       <Header />
-      {service ? <ServicePage service={service} /> : isAbout ? <AboutPage /> : isWhyUs ? <WhyUsPage /> : isKundenstimmen ? <KundenstimmenPage /> : isFAQ ? <FAQPage /> : isLegal ? <Legal /> : <HomePage />}
+      {service ? <ServicePage service={service} /> : isAbout ? <AboutPage /> : isWhyUs ? <WhyUsPage /> : isKundenstimmen ? <KundenstimmenPage /> : isFAQ ? <FAQPage /> : isDatenschutz ? <DatenschutzPage /> : isLegal ? <Legal /> : <HomePage />}
       <Footer />
       <FloatingActions />
       <CookieBanner />

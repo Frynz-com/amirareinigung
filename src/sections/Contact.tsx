@@ -107,7 +107,7 @@ export default function Contact() {
                   <input type="checkbox" name="privacy" required checked={form.privacy} onChange={handleChange}
                     className="mt-1 h-4 w-4 rounded accent-[#C8102E]" />
                   <span className="font-body text-sm text-[#475569] leading-relaxed">
-                    Ich habe die <a href="#datenschutz" className="text-teal underline underline-offset-2">Datenschutzhinweise</a> zur Kenntnis genommen.
+                    Ich habe die <a href="/datenschutz" className="text-teal underline underline-offset-2">Datenschutzhinweise</a> zur Kenntnis genommen.
                   </span>
                 </label>
 

@@ -14,11 +14,14 @@ const companyLinks = [
   { label: 'FAQ',            href: '/faq',             desc: 'Häufige Fragen' },
 ];
 
+const LIGHT_PAGES = ['/impressum', '/datenschutz'];
+
 export default function Header() {
   const [scrolled, setScrolled]       = useState(false);
   const [mobileOpen, setMobileOpen]   = useState(false);
   const [dropOpen, setDropOpen]       = useState(false);
   const [mobileCompOpen, setMobileCompOpen] = useState(false);
+  const [currentPath, setCurrentPath] = useState(window.location.pathname);
   const dropRef = useRef<HTMLDivElement>(null);
 
   const handleScroll = useCallback(() => setScrolled(window.scrollY > 60), []);
@@ -28,6 +31,15 @@ export default function Header() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, [handleScroll]);
+
+  useEffect(() => {
+    const onPop = () => { setCurrentPath(window.location.pathname); handleScroll(); };
+    window.addEventListener('popstate', onPop);
+    return () => window.removeEventListener('popstate', onPop);
+  }, [handleScroll]);
+
+  // Force opaque header on pages without a dark hero
+  const showScrolled = scrolled || LIGHT_PAGES.includes(currentPath);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -47,7 +59,7 @@ export default function Header() {
     if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 72, behavior: 'smooth' });
   };
 
-  const textColor = scrolled ? 'text-[#475569] hover:text-[#0F1628]' : 'text-white/80 hover:text-white';
+  const textColor = showScrolled ? 'text-[#475569] hover:text-[#0F1628]' : 'text-white/80 hover:text-white';
 
   return (
     <>
@@ -55,11 +67,11 @@ export default function Header() {
         className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
         style={{
           height: 72,
-          background: scrolled ? 'rgba(255,255,255,0.97)' : 'rgba(255,255,255,0)',
-          backdropFilter: scrolled ? 'blur(16px)' : 'none',
-          WebkitBackdropFilter: scrolled ? 'blur(16px)' : 'none',
-          borderBottom: scrolled ? '1px solid #EEE9E2' : '1px solid transparent',
-          boxShadow: scrolled ? '0 1px 16px rgba(0,0,0,0.05)' : 'none',
+          background: showScrolled ? 'rgba(255,255,255,0.97)' : 'rgba(255,255,255,0)',
+          backdropFilter: showScrolled ? 'blur(16px)' : 'none',
+          WebkitBackdropFilter: showScrolled ? 'blur(16px)' : 'none',
+          borderBottom: showScrolled ? '1px solid #EEE9E2' : '1px solid transparent',
+          boxShadow: showScrolled ? '0 1px 16px rgba(0,0,0,0.05)' : 'none',
         }}
       >
         <div className="max-w-[1200px] mx-auto h-full flex items-center justify-between px-5 md:px-8">
@@ -70,7 +82,7 @@ export default function Header() {
               src="/images/amira-logo-transparent.png"
               alt="Amira Gebäudereinigung"
               className="h-9 w-auto max-w-[170px] object-contain object-left transition-all duration-300"
-              style={{ filter: scrolled ? 'none' : 'brightness(0) invert(1)' }}
+              style={{ filter: showScrolled ? 'none' : 'brightness(0) invert(1)' }}
             />
           </a>
 
@@ -155,7 +167,7 @@ export default function Header() {
             </a>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className={`p-2 transition-colors ${scrolled ? 'text-[#0F1628]' : 'text-white'}`}
+              className={`p-2 transition-colors ${showScrolled ? 'text-[#0F1628]' : 'text-white'}`}
               aria-label="Menü"
             >
               {mobileOpen ? <X size={24} /> : <Menu size={24} />}
