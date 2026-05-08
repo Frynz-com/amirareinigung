@@ -310,18 +310,13 @@ export default function ServicePage({ service }: ServicePageProps) {
 
         <section className="bg-bg-main" style={{ padding: '90px 0' }}>
           <div className="max-w-[1200px] mx-auto px-5 md:px-8">
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5 mb-8">
-              <div>
-                <span className="font-body font-semibold text-xs uppercase tracking-[0.08em] text-teal">
-                  Weitere Leistungen
-                </span>
-                <h2 className="font-display font-semibold text-primary-dark mt-3" style={{ fontSize: 'clamp(1.75rem, 2.8vw, 2.3rem)', lineHeight: 1.15 }}>
-                  Gebäudereinigung aus einer Hand
-                </h2>
-              </div>
-              <a href="/#services" className="font-body font-semibold text-teal hover:text-teal-dark transition-colors">
-                Alle Leistungen ansehen
-              </a>
+            <div className="mb-8">
+              <span className="font-body font-semibold text-xs uppercase tracking-[0.08em] text-teal">
+                Weitere Leistungen
+              </span>
+              <h2 className="font-display font-semibold text-primary-dark mt-3" style={{ fontSize: 'clamp(1.75rem, 2.8vw, 2.3rem)', lineHeight: 1.15 }}>
+                Gebäudereinigung aus einer Hand
+              </h2>
             </div>
             <RelatedServices currentSlug={service.slug} />
           </div>
@@ -352,10 +347,10 @@ export function RelatedServices({ currentSlug }: { currentSlug: string }) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       {servicePages.filter((item) => item.slug !== currentSlug).slice(0, 4).map((item) => (
-        <a key={item.slug} href={`/leistungen/${item.slug}`} className="border border-border-light rounded-lg p-5 hover:border-teal/40 hover:-translate-y-0.5 transition-all">
+        <div key={item.slug} className="border border-border-light rounded-lg p-5 bg-white">
           <p className="font-body font-semibold text-primary-dark">{item.navTitle}</p>
           <p className="font-body text-sm text-text-secondary mt-2">{item.title}</p>
-        </a>
+        </div>
       ))}
     </div>
   );
