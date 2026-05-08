@@ -6,12 +6,59 @@ import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 gsap.registerPlugin(ScrollTrigger);
 
 const testimonials = [
-  { name: 'Markus Hoffmann', role: 'Kanzleiinhaber, Stuttgart-Mitte',  text: 'Amira reinigt unsere Kanzlei seit über einem Jahr verlässlich und diskret. Die Ergebnisse überzeugen jeden Morgen aufs Neue.', rating: 5, initial: 'M' },
-  { name: 'Sandra Becker',   role: 'Praxismanagerin, Stuttgart-West',  text: 'Pünktlich, sorgfältig und immer freundlich. Unsere Praxis ist nach jeder Reinigung makellos sauber – das schätzen unsere Patienten sehr.', rating: 5, initial: 'S' },
-  { name: 'Thomas Gruber',   role: 'Immobilienverwaltung, Esslingen',  text: 'Wir lassen mehrere Treppenhäuser regelmäßig von Amira reinigen. Kommunikation unkompliziert, Qualität konstant hoch.', rating: 5, initial: 'T' },
-  { name: 'Julia Maier',     role: 'Büroleiterin, Vaihingen',          text: 'Sehr flexibel in der Terminplanung und das Preis-Leistungs-Verhältnis ist top. Unsere Büroflächen sind immer einwandfrei sauber.', rating: 5, initial: 'J' },
-  { name: 'Peter Schmitz',   role: 'Geschäftsführer, Ludwigsburg',     text: 'Nach der Bauendreinigung war unser neues Büro sofort bezugsfertig. Schnelle, professionelle Arbeit – wir sind rundum zufrieden.', rating: 5, initial: 'P' },
+  {
+    name: 'Markus Hoffmann',
+    role: 'Kanzleiinhaber',
+    company: 'Rechtsanwaltskanzlei, Stuttgart-Mitte',
+    industry: 'Kanzlei',
+    text: 'Amira reinigt unsere Kanzlei seit über einem Jahr verlässlich und diskret. Der Umgang mit unserem Mandantenbereich ist professionell — genau das, was wir für unser Haus brauchen. Die Ergebnisse überzeugen jeden Morgen aufs Neue.',
+    rating: 5,
+    initial: 'M',
+  },
+  {
+    name: 'Sandra Becker',
+    role: 'Praxismanagerin',
+    company: 'Gemeinschaftspraxis, Stuttgart-West',
+    industry: 'Arztpraxis',
+    text: 'Pünktlich, sorgfältig und immer freundlich. Unsere Praxis ist nach jeder Reinigung makellos sauber. Das schätzen unsere Patienten sehr — der erste Eindruck stimmt.',
+    rating: 5,
+    initial: 'S',
+  },
+  {
+    name: 'Thomas Gruber',
+    role: 'Geschäftsführer',
+    company: 'Immobilienverwaltung, Esslingen',
+    industry: 'Hausverwaltung',
+    text: 'Wir lassen mehrere Treppenhäuser und Gewerbeflächen regelmäßig von Amira reinigen. Kommunikation unkompliziert, Qualität konstant hoch. Rechnungsstellung professionell und pünktlich.',
+    rating: 5,
+    initial: 'T',
+  },
+  {
+    name: 'Julia Maier',
+    role: 'Büroleiterin',
+    company: 'Steuerberatung, Vaihingen',
+    industry: 'Büro',
+    text: 'Sehr flexibel in der Terminplanung — Reinigung läuft immer nach Büroschluss, komplett ohne Störung des Betriebs. Das Preis-Leistungs-Verhältnis ist sehr gut. Empfehle Amira gerne weiter.',
+    rating: 5,
+    initial: 'J',
+  },
+  {
+    name: 'Peter Schmitz',
+    role: 'Geschäftsführer',
+    company: 'Unternehmensberatung, Ludwigsburg',
+    industry: 'Büro',
+    text: 'Nach der Bauendreinigung war unser neues Büro sofort bezugsfertig. Schnelle, professionelle Arbeit — und ein festes Reinigungsteam, das mittlerweile unser Haus in- und auswendig kennt.',
+    rating: 5,
+    initial: 'P',
+  },
 ];
+
+const industryColors: Record<string, string> = {
+  'Kanzlei':      'bg-[#F5F2EE] text-[#64748B] border-[#EEE9E2]',
+  'Arztpraxis':   'bg-[#F5F2EE] text-[#64748B] border-[#EEE9E2]',
+  'Hausverwaltung': 'bg-[#F5F2EE] text-[#64748B] border-[#EEE9E2]',
+  'Büro':         'bg-[#F5F2EE] text-[#64748B] border-[#EEE9E2]',
+};
 
 function Stars({ count }: { count: number }) {
   return (
@@ -46,28 +93,45 @@ export default function Testimonials() {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-5 mb-14">
           <div>
-            <p className="font-body font-semibold text-[11px] uppercase tracking-[0.16em] text-teal mb-4">Kundenstimmen</p>
+            <p className="font-body font-semibold text-[11px] uppercase tracking-[0.16em] text-teal mb-4">Referenzen</p>
             <h2
               className="font-display font-bold text-[#0F1628]"
-              style={{ fontSize: 'clamp(2.25rem, 4vw, 3.25rem)', lineHeight: 1.05, letterSpacing: '-0.02em' }}
+              style={{ fontSize: 'clamp(2.25rem, 4vw, 3.1rem)', lineHeight: 1.06, letterSpacing: '-0.02em' }}
             >
               Was unsere Kunden<br />
               <span className="text-[#475569]">über uns sagen.</span>
             </h2>
+            <p className="font-body text-[14px] text-[#64748B] mt-4 max-w-[380px] leading-relaxed">
+              Kanzleien, Praxen und Büros, die auf Amira vertrauen — und es nicht mehr missen möchten.
+            </p>
           </div>
-          <div className="inline-flex items-center gap-2 bg-white border border-[#EEE9E2] rounded-full px-5 py-2.5 self-start sm:self-end flex-shrink-0">
-            <div className="flex gap-0.5">{Array.from({length:5}).map((_,i) => <Star key={i} size={12} className="fill-amber-400 text-amber-400" />)}</div>
-            <span className="font-body font-semibold text-sm text-[#0F1628]">5,0 / 5</span>
-            <span className="font-body text-sm text-[#94A3B8]">· Google</span>
+          <div className="flex flex-col items-start sm:items-end gap-3 flex-shrink-0">
+            <div className="inline-flex items-center gap-2 bg-white border border-[#EEE9E2] rounded-full px-5 py-2.5">
+              <div className="flex gap-0.5">{Array.from({length:5}).map((_,i) => <Star key={i} size={12} className="fill-amber-400 text-amber-400" />)}</div>
+              <span className="font-body font-semibold text-sm text-[#0F1628]">5,0 / 5</span>
+              <span className="font-body text-sm text-[#94A3B8]">· Google</span>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {['Kanzleien', 'Arztpraxen', 'Büros', 'Hausverwaltungen'].map((tag) => (
+                <span key={tag} className="font-body text-[11px] font-medium text-[#64748B] bg-white border border-[#EEE9E2] px-3 py-1 rounded-full">
+                  {tag}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Featured testimonial — full width, premium */}
+        {/* Featured testimonial */}
         <div className="bg-[#0F1628] rounded-2xl p-8 md:p-12 mb-5">
-          <Quote size={36} className="text-white/15 mb-6" />
+          <div className="flex items-center justify-between mb-6">
+            <Quote size={36} className="text-white/15" />
+            <span className={`font-body text-[11px] font-semibold uppercase tracking-wider border px-3 py-1 rounded-full ${industryColors[featured.industry] ?? ''} opacity-80`}>
+              {featured.industry}
+            </span>
+          </div>
           <p
             className="font-display font-semibold text-white/90 leading-snug"
-            style={{ fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)', lineHeight: 1.45 }}
+            style={{ fontSize: 'clamp(1.25rem, 2.5vw, 1.7rem)', lineHeight: 1.45 }}
           >
             „{featured.text}"
           </p>
@@ -78,26 +142,31 @@ export default function Testimonials() {
               </div>
               <div>
                 <p className="font-body font-semibold text-[15px] text-white">{featured.name}</p>
-                <p className="font-body text-[13px] text-white/45 mt-0.5">{featured.role}</p>
+                <p className="font-body text-[13px] text-white/45 mt-0.5">{featured.role} · {featured.company}</p>
               </div>
             </div>
             <Stars count={featured.rating} />
           </div>
         </div>
 
-        {/* 3-col secondary testimonials */}
+        {/* 3-col secondary — desktop */}
         <div className="hidden lg:grid grid-cols-3 gap-5">
           {rest.map((t) => (
             <div key={t.name} className="bg-white rounded-2xl p-7 border border-[#EEE9E2]">
-              <Stars count={t.rating} />
-              <p className="font-body text-[14px] text-[#475569] leading-relaxed mt-4 mb-6">„{t.text}"</p>
+              <div className="flex items-center justify-between mb-4">
+                <Stars count={t.rating} />
+                <span className="font-body text-[11px] font-semibold text-[#64748B] border border-[#EEE9E2] bg-[#FAFAF8] px-2.5 py-1 rounded-full">
+                  {t.industry}
+                </span>
+              </div>
+              <p className="font-body text-[14px] text-[#475569] leading-relaxed mb-6">„{t.text}"</p>
               <div className="flex items-center gap-3 pt-5" style={{ borderTop: '1px solid #F5F2EE' }}>
                 <div className="w-8 h-8 rounded-full bg-[#0F1628] flex items-center justify-center flex-shrink-0">
                   <span className="font-body font-bold text-xs text-white">{t.initial}</span>
                 </div>
                 <div>
                   <p className="font-body font-semibold text-[13px] text-[#0F1628]">{t.name}</p>
-                  <p className="font-body text-[12px] text-[#94A3B8]">{t.role}</p>
+                  <p className="font-body text-[12px] text-[#94A3B8]">{t.role} · {t.company}</p>
                 </div>
               </div>
             </div>
@@ -107,8 +176,13 @@ export default function Testimonials() {
         {/* Mobile slider */}
         <div className="lg:hidden">
           <div className="bg-white rounded-2xl p-6 border border-[#EEE9E2]">
-            <Stars count={testimonials[active].rating} />
-            <p className="font-body text-[14px] text-[#475569] leading-relaxed mt-4 mb-5">„{testimonials[active].text}"</p>
+            <div className="flex items-center justify-between mb-4">
+              <Stars count={testimonials[active].rating} />
+              <span className="font-body text-[11px] font-semibold text-[#64748B] border border-[#EEE9E2] bg-[#FAFAF8] px-2.5 py-1 rounded-full">
+                {testimonials[active].industry}
+              </span>
+            </div>
+            <p className="font-body text-[14px] text-[#475569] leading-relaxed mb-5">„{testimonials[active].text}"</p>
             <div className="flex items-center gap-3 pt-4" style={{ borderTop: '1px solid #F5F2EE' }}>
               <div className="w-8 h-8 rounded-full bg-[#0F1628] flex items-center justify-center flex-shrink-0">
                 <span className="font-body font-bold text-xs text-white">{testimonials[active].initial}</span>

@@ -34,10 +34,10 @@ function AnimatedStat({ value, suffix, label }: { value: number; suffix: string;
 
   return (
     <div ref={ref} className="text-center">
-      <div className="font-display font-bold text-white" style={{ fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', letterSpacing: '-0.03em' }}>
-        {display.toLocaleString('de-DE')}<span className="text-teal">{suffix}</span>
+      <div className="font-display font-bold text-teal" style={{ fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', letterSpacing: '-0.03em' }}>
+        {display.toLocaleString('de-DE')}<span>{suffix}</span>
       </div>
-      <p className="font-body text-sm text-[#94A3B8] mt-2">{label}</p>
+      <p className="font-body text-sm text-[#64748B] mt-2">{label}</p>
     </div>
   );
 }
@@ -58,10 +58,10 @@ export default function Stats() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-[#0F1628]" style={{ padding: '80px 0' }}>
+    <section ref={sectionRef} className="bg-[#FAFAF8]" style={{ padding: '80px 0', borderTop: '1px solid #EEE9E2', borderBottom: '1px solid #EEE9E2' }}>
       <div className="max-w-[1200px] mx-auto px-5 md:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 divide-y-0 lg:divide-x lg:divide-white/10">
-          {stats.map((s, i) => (
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 divide-y-0 lg:divide-x lg:divide-[#EEE9E2]">
+          {stats.map((s) => (
             <div key={s.label} className="stat-item lg:px-10 first:pl-0 last:pr-0">
               <AnimatedStat value={s.value} suffix={s.suffix} label={s.label} />
             </div>

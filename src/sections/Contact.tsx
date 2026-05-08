@@ -5,7 +5,7 @@ import { MapPin, Phone, Mail, Clock, CheckCircle, Lock } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const serviceOptions = ['Bitte wählen...','Fensterreinigung','Büroreinigung','Treppenhausreinigung','Teppichreinigung','Unterhaltsreinigung','Grundreinigung','Bauendreinigung','Wohnungsreinigung','Sonstiges'];
+const serviceOptions = ['Bitte wählen...','Fensterreinigung','Büroreinigung','Treppenhausreinigung','Unterhaltsreinigung','Grundreinigung','Bauendreinigung','Wohnungsreinigung','Sonstiges'];
 
 type F = { name: string; email: string; phone: string; service: string; message: string; privacy: boolean };
 
@@ -43,10 +43,10 @@ export default function Contact() {
     finally { setSubmitting(false); }
   };
 
-  const inp = "w-full bg-white border border-[#E2E8F0] rounded-xl px-4 py-3.5 font-body text-[15px] text-[#0F1628] placeholder:text-[#94A3B8] focus:border-teal focus:ring-2 focus:ring-teal/10 focus:outline-none transition-all";
+  const inp = "w-full bg-white border border-[#EEE9E2] rounded-xl px-4 py-3.5 font-body text-[15px] text-[#0F1628] placeholder:text-[#94A3B8] focus:border-teal focus:ring-2 focus:ring-teal/10 focus:outline-none transition-all";
 
   return (
-    <section id="contact" ref={sectionRef} className="bg-[#F8FAFC]" style={{ padding: '120px 0' }}>
+    <section id="contact" ref={sectionRef} className="bg-[#FAFAF8]" style={{ padding: '120px 0' }}>
       <div className="max-w-[1200px] mx-auto px-5 md:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-[58%_42%] gap-12 lg:gap-16">
 
@@ -61,7 +61,7 @@ export default function Contact() {
             </p>
 
             {submitted ? (
-              <div className="mt-8 flex items-start gap-4 p-6 bg-white border border-[#E2E8F0] rounded-2xl">
+              <div className="mt-8 flex items-start gap-4 p-6 bg-white border border-[#EEE9E2] rounded-2xl">
                 <CheckCircle size={26} className="text-emerald-500 flex-shrink-0 mt-0.5" />
                 <div>
                   <p className="font-body font-semibold text-[#0F1628] text-lg">Vielen Dank!</p>
@@ -132,7 +132,7 @@ export default function Contact() {
 
           {/* Info */}
           <div className="contact-right lg:self-start space-y-4">
-            <div className="bg-white border border-[#E2E8F0] rounded-2xl p-7 space-y-6">
+            <div className="bg-white border border-[#EEE9E2] rounded-2xl p-7 space-y-6">
               {[
                 { Icon: MapPin, label: 'Einsatzgebiet', content: 'Stuttgart und gesamte Region:\nFellbach, Esslingen, Ludwigsburg,\nLeinfelden-Echterdingen u. v. m.' },
                 { Icon: Phone, label: 'Telefon', content: null },
@@ -140,7 +140,7 @@ export default function Contact() {
                 { Icon: Clock, label: 'Verfügbarkeit', content: 'Termine nach Vereinbarung\nTäglich, wöchentlich oder monatlich' },
               ].map(({ Icon, label, content }) => (
                 <div key={label} className="flex gap-4">
-                  <div className="w-9 h-9 rounded-lg bg-[#F1F5F9] flex items-center justify-center flex-shrink-0">
+                  <div className="w-9 h-9 rounded-lg bg-[#F5F2EE] flex items-center justify-center flex-shrink-0">
                     <Icon size={16} className="text-[#64748B]" />
                   </div>
                   <div>
@@ -163,7 +163,7 @@ export default function Contact() {
                 </div>
               ))}
 
-              <div className="border-t border-[#F1F5F9] pt-5">
+              <div className="border-t border-[#EEE9E2] pt-5">
                 <p className="font-body text-[14px] text-[#475569] mb-3">Lieber direkt anrufen?</p>
                 <a href="tel:+491728060586"
                   className="inline-flex items-center gap-2 font-body font-semibold text-sm text-white bg-teal hover:bg-teal-dark px-5 py-2.5 rounded-xl transition-all">
@@ -175,9 +175,9 @@ export default function Contact() {
             {/* Trust mini */}
             <div className="grid grid-cols-3 gap-3">
               {[{v:'7+', l:'Jahre'},{v:'3.000+', l:'Aufträge'},{v:'100%', l:'Zufriedenheit'}].map(b=>(
-                <div key={b.v} className="bg-white border border-[#E2E8F0] rounded-xl p-4 text-center">
-                  <p className="font-display font-bold text-lg text-[#0F1628]">{b.v}</p>
-                  <p className="font-body text-xs text-[#94A3B8] mt-0.5">{b.l}</p>
+                <div key={b.v} className="bg-[#F5F2EE] border border-[#EEE9E2] rounded-xl p-4 text-center">
+                  <p className="font-display font-bold text-lg text-teal">{b.v}</p>
+                  <p className="font-body text-xs text-[#64748B] mt-0.5">{b.l}</p>
                 </div>
               ))}
             </div>

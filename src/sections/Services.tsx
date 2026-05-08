@@ -137,7 +137,7 @@ export default function Services() {
                 style={{ borderBottom: i < listServices.length - 1 ? '1px solid #F5F2EE' : 'none' }}
               >
                 <div className="flex items-center gap-5">
-                  <div className="w-9 h-9 rounded-xl bg-[#F5F2EE] group-hover:bg-teal/10 flex items-center justify-center flex-shrink-0 transition-colors">
+                  <div className="w-9 h-9 rounded-xl bg-[#F5F2EE] group-hover:bg-[rgba(200,16,46,0.07)] flex items-center justify-center flex-shrink-0 transition-colors">
                     <Icon size={16} className="text-[#64748B] group-hover:text-teal transition-colors" />
                   </div>
                   <div>
@@ -145,7 +145,7 @@ export default function Services() {
                     <p className="font-body text-[13px] text-[#94A3B8] mt-0.5">{service.desc}</p>
                   </div>
                 </div>
-                <ArrowUpRight size={16} className="text-[#CBD5E1] group-hover:text-teal group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all flex-shrink-0 ml-4" />
+                <ArrowUpRight size={16} className="text-[#D4CFCA] group-hover:text-teal group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all flex-shrink-0 ml-4" />
               </a>
             );
           })}

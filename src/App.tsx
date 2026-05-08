@@ -17,6 +17,10 @@ import Footer from './sections/Footer';
 import FloatingActions from './components/FloatingActions';
 import CookieBanner from './components/CookieBanner';
 import ServicePage from './pages/ServicePage';
+import AboutPage from './pages/AboutPage';
+import WhyUsPage from './pages/WhyUsPage';
+import KundenstimmenPage from './pages/KundenstimmenPage';
+import FAQPage from './pages/FAQPage';
 import { servicePageMap, type ServiceSlug } from './data/servicePages';
 
 function setMeta(name: string, content: string) {
@@ -66,6 +70,10 @@ export default function App() {
   }, [path]);
 
   const isLegal = path === '/impressum' || path === '/datenschutz';
+  const isAbout = path === '/ueber-uns';
+  const isWhyUs = path === '/warum-amira';
+  const isKundenstimmen = path === '/kundenstimmen';
+  const isFAQ = path === '/faq';
 
   useEffect(() => {
     const onPopState = () => setPath(window.location.pathname);
@@ -78,6 +86,30 @@ export default function App() {
       document.title = service.metaTitle;
       setMeta('description', service.metaDescription);
       setCanonical(`/leistungen/${service.slug}`);
+      return;
+    }
+    if (path === '/ueber-uns') {
+      document.title = 'Über uns – Amira Gebäudereinigung Stuttgart';
+      setMeta('description', 'Seit über 7 Jahren professionelle Gebäudereinigung in Stuttgart. Amira Gebäudereinigung – diskret, verlässlich, für Kanzleien, Praxen und Büros.');
+      setCanonical('/ueber-uns');
+      return;
+    }
+    if (path === '/warum-amira') {
+      document.title = 'Warum Amira – Ihr Vorteil bei der Reinigung | Stuttgart';
+      setMeta('description', 'Warum Kanzleien, Praxen und Büros auf Amira Gebäudereinigung vertrauen: Feste Teams, zertifizierte Qualität, diskrete Arbeitsweise in Stuttgart.');
+      setCanonical('/warum-amira');
+      return;
+    }
+    if (path === '/kundenstimmen') {
+      document.title = 'Kundenstimmen – Amira Gebäudereinigung Stuttgart';
+      setMeta('description', 'Bewertungen und Referenzen von Kanzleien, Arztpraxen, Büros und Hausverwaltungen in Stuttgart über Amira Gebäudereinigung.');
+      setCanonical('/kundenstimmen');
+      return;
+    }
+    if (path === '/faq') {
+      document.title = 'FAQ – Häufige Fragen | Amira Gebäudereinigung Stuttgart';
+      setMeta('description', 'Antworten auf häufige Fragen zu Diskretion, Ablauf, Leistungen und Abrechnung bei Amira Gebäudereinigung Stuttgart.');
+      setCanonical('/faq');
       return;
     }
     if (path === '/impressum') {
@@ -100,7 +132,7 @@ export default function App() {
   return (
     <div className="font-body">
       <Header />
-      {service ? <ServicePage service={service} /> : isLegal ? <Legal /> : <HomePage />}
+      {service ? <ServicePage service={service} /> : isAbout ? <AboutPage /> : isWhyUs ? <WhyUsPage /> : isKundenstimmen ? <KundenstimmenPage /> : isFAQ ? <FAQPage /> : isLegal ? <Legal /> : <HomePage />}
       <Footer />
       <FloatingActions />
       <CookieBanner />

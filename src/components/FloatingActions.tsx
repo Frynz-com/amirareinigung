@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ArrowUp, MessageCircle } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 
 export default function FloatingActions() {
   const [showScroll, setShowScroll] = useState(false);

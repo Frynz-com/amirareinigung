@@ -9,14 +9,14 @@ const items = [
 
 export default function TrustBar() {
   return (
-    <section className="bg-white border-b border-[#E2E8F0]">
+    <section className="bg-white border-b border-[#EEE9E2]">
       <div className="max-w-[1200px] mx-auto px-5 md:px-8 py-10">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 divide-y-0 lg:divide-x lg:divide-[#E2E8F0]">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 divide-y-0 lg:divide-x lg:divide-[#EEE9E2]">
           {items.map((item) => {
             const Icon = item.icon;
             return (
               <div key={item.title} className="flex items-center gap-4 lg:px-8 first:pl-0 last:pr-0">
-                <div className="w-10 h-10 rounded-xl bg-[#F1F5F9] flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-[#F5F2EE] flex items-center justify-center flex-shrink-0">
                   <Icon size={18} className="text-[#475569]" />
                 </div>
                 <div>

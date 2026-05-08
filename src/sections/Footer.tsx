@@ -34,13 +34,12 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <div className="inline-flex bg-white rounded-xl px-4 py-3 mb-5">
-              <img
-                src="/images/amira-logo-cropped.png"
-                alt="Amira Gebäudereinigung"
-                className="h-9 w-auto max-w-[160px] object-contain object-left"
-              />
-            </div>
+            <img
+              src="/images/amira-logo-transparent.png"
+              alt="Amira Gebäudereinigung"
+              className="h-10 w-auto max-w-[170px] object-contain object-left mb-5"
+              style={{ filter: 'brightness(0) invert(1)' }}
+            />
             <p className="font-body text-[14px] text-white/50 leading-relaxed max-w-[240px]">
               Professionelle Gebäudereinigung in Stuttgart und Umgebung seit über 7 Jahren.
             </p>

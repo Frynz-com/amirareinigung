@@ -1,7 +1,6 @@
 import { ArrowRight, Check, Clock, KeyRound, MapPin, Phone, ShieldCheck, Sparkles } from 'lucide-react';
 import { serviceArea, servicePages, type ServicePageData } from '../data/servicePages';
 import Contact from '../sections/Contact';
-import Legal from '../sections/Legal';
 
 interface ServicePageProps {
   service: ServicePageData;
@@ -188,13 +187,13 @@ export default function ServicePage({ service }: ServicePageProps) {
           </div>
         </section>
 
-        <section className="bg-primary-dark" style={{ padding: '90px 0' }}>
+        <section className="bg-[#F5F2EE]" style={{ padding: '90px 0' }}>
           <div className="max-w-[1200px] mx-auto px-5 md:px-8">
             <div className="max-w-[620px] mb-10">
               <span className="font-body font-semibold text-xs uppercase tracking-[0.08em] text-teal">
                 Qualitätsanspruch
               </span>
-              <h2 className="font-display font-semibold text-white mt-3" style={{ fontSize: 'clamp(2rem, 3.2vw, 2.7rem)', lineHeight: 1.15 }}>
+              <h2 className="font-display font-semibold text-[#0F1628] mt-3" style={{ fontSize: 'clamp(2rem, 3.2vw, 2.7rem)', lineHeight: 1.15 }}>
                 Professionelle Reinigung für sensible Geschäftsräume
               </h2>
             </div>
@@ -202,10 +201,10 @@ export default function ServicePage({ service }: ServicePageProps) {
               {qualityStandards.map((standard) => {
                 const StandardIcon = standard.icon;
                 return (
-                  <div key={standard.title} className="border border-white/10 rounded-lg p-6 bg-white/[0.03]">
+                  <div key={standard.title} className="border border-[#EEE9E2] rounded-lg p-6 bg-white">
                     <StandardIcon size={24} className="text-teal" />
-                    <h3 className="font-body font-semibold text-white mt-5">{standard.title}</h3>
-                    <p className="font-body text-sm text-[rgba(255,255,255,0.66)] leading-relaxed mt-3">{standard.text}</p>
+                    <h3 className="font-body font-semibold text-[#0F1628] mt-5">{standard.title}</h3>
+                    <p className="font-body text-sm text-[#64748B] leading-relaxed mt-3">{standard.text}</p>
                   </div>
                 );
               })}
@@ -267,24 +266,24 @@ export default function ServicePage({ service }: ServicePageProps) {
           </div>
         </section>
 
-        <section className="bg-primary-dark" style={{ padding: '90px 0' }}>
+        <section className="bg-[#FAFAF8]" style={{ padding: '90px 0', borderTop: '1px solid #EEE9E2', borderBottom: '1px solid #EEE9E2' }}>
           <div className="max-w-[1200px] mx-auto px-5 md:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-[42%_58%] gap-10 lg:gap-14">
               <div>
-                <span className="inline-flex items-center gap-2 font-body font-semibold text-xs uppercase tracking-[0.08em] text-[rgba(255,255,255,0.7)]">
+                <span className="inline-flex items-center gap-2 font-body font-semibold text-xs uppercase tracking-[0.08em] text-teal">
                   <MapPin size={16} className="text-teal" />
                   Einsatzgebiet
                 </span>
-                <h2 className="font-display font-semibold text-white mt-3" style={{ fontSize: 'clamp(2rem, 3.2vw, 2.7rem)', lineHeight: 1.15 }}>
+                <h2 className="font-display font-semibold text-[#0F1628] mt-3" style={{ fontSize: 'clamp(2rem, 3.2vw, 2.7rem)', lineHeight: 1.15 }}>
                   Stuttgart und Umgebung
                 </h2>
-                <p className="font-body text-[rgba(255,255,255,0.7)] text-lg leading-relaxed mt-5">
+                <p className="font-body text-[#475569] text-lg leading-relaxed mt-5">
                   Wir bedienen Stuttgart sowie umliegende Orte. Für Kanzleien, Büros und Gewerbekunden erstellen wir ein passendes Angebot nach Objekt, Intervall und gewünschtem Leistungsumfang.
                 </p>
               </div>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                 {serviceArea.map((area) => (
-                  <div key={area} className="border border-white/10 rounded-lg px-4 py-3 font-body text-[rgba(255,255,255,0.82)]">
+                  <div key={area} className="border border-[#EEE9E2] rounded-lg px-4 py-3 font-body text-[#475569] bg-white">
                     {area}
                   </div>
                 ))}
@@ -344,7 +343,6 @@ export default function ServicePage({ service }: ServicePageProps) {
         </section>
 
         <Contact />
-        <Legal />
       </main>
     </>
   );

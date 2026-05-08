@@ -24,15 +24,15 @@ export default function CTABanner() {
   };
 
   return (
-    <section ref={ref} className="bg-[#0F1628]" style={{ padding: '100px 0' }}>
+    <section ref={ref} className="bg-[#FAFAF8]" style={{ padding: '100px 0', borderTop: '1px solid #EEE9E2' }}>
       <div className="max-w-[840px] mx-auto px-5 md:px-8 text-center">
-        <p className="cta-el font-body font-semibold text-xs uppercase tracking-[0.12em] text-white/50 mb-4">
+        <p className="cta-el font-body font-semibold text-xs uppercase tracking-[0.12em] text-teal mb-4">
           Jetzt anfragen
         </p>
-        <h2 className="cta-el font-display font-bold text-white" style={{ fontSize: 'clamp(2rem, 3.5vw, 2.75rem)', lineHeight: 1.1 }}>
+        <h2 className="cta-el font-display font-bold text-[#0F1628]" style={{ fontSize: 'clamp(2rem, 3.5vw, 2.75rem)', lineHeight: 1.1 }}>
           Kostenloses & unverbindliches Angebot
         </h2>
-        <p className="cta-el font-body text-white/60 mt-4 text-lg max-w-[520px] mx-auto leading-relaxed">
+        <p className="cta-el font-body text-[#475569] mt-4 text-lg max-w-[520px] mx-auto leading-relaxed">
           Schildern Sie uns Ihren Bedarf — wir erstellen Ihnen innerhalb von 24 Stunden ein maßgeschneidertes Angebot.
         </p>
         <div className="cta-el flex flex-col sm:flex-row justify-center gap-4 mt-10">
@@ -45,15 +45,15 @@ export default function CTABanner() {
           </a>
           <a
             href="tel:+491728060586"
-            className="inline-flex items-center justify-center gap-2 font-body font-semibold text-base text-white border border-white/20 hover:border-white/40 hover:bg-white/5 px-8 py-4 rounded-xl transition-all duration-200"
+            className="inline-flex items-center justify-center gap-2 font-body font-semibold text-base text-[#0F1628] border border-[#EEE9E2] hover:border-[#0F1628] hover:bg-[#F5F2EE] px-8 py-4 rounded-xl transition-all duration-200"
           >
             <Phone size={17} /> 0172 80 60 586
           </a>
         </div>
         <div className="cta-el flex flex-wrap justify-center gap-x-8 gap-y-2 mt-10">
           {['Kostenlos & unverbindlich', 'Antwort in 24h', '7+ Jahre Erfahrung'].map((t) => (
-            <span key={t} className="font-body text-sm text-white/40 flex items-center gap-1.5">
-              <span className="w-1 h-1 rounded-full bg-white/30" />{t}
+            <span key={t} className="font-body text-sm text-[#94A3B8] flex items-center gap-1.5">
+              <span className="w-1 h-1 rounded-full bg-[#D4CFCA]" />{t}
             </span>
           ))}
         </div>

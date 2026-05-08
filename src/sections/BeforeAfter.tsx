@@ -18,11 +18,6 @@ const comparisons: ComparisonPair[] = [
     caption: 'Bauendreinigung — Gewerbeobjekt Stuttgart',
   },
   {
-    before: '/images/before-carpet.jpg',
-    after: '/images/after-carpet.jpg',
-    caption: 'Teppichtiefenreinigung — Bürogebäude',
-  },
-  {
     before: '/images/before-bathroom.jpg',
     after: '/images/after-bathroom.jpg',
     caption: 'Sanitärgrundreinigung — Praxis',
@@ -160,17 +155,17 @@ export default function BeforeAfter() {
   }, []);
 
   return (
-    <section id="beforeafter" ref={sectionRef} className="bg-primary-dark" style={{ padding: '120px 0' }}>
+    <section id="beforeafter" ref={sectionRef} className="bg-[#F5F2EE]" style={{ padding: '120px 0' }}>
       <div className="max-w-[1200px] mx-auto px-5 md:px-8 ba-content">
         {/* Header */}
         <div className="text-center mb-12">
           <span className="font-body font-semibold text-xs uppercase tracking-[0.08em] text-teal">
             Ergebnisse
           </span>
-          <h2 className="font-display font-semibold text-white mt-3" style={{ fontSize: 'clamp(2rem, 3.5vw, 2.75rem)', lineHeight: 1.15 }}>
+          <h2 className="font-display font-semibold text-[#0F1628] mt-3" style={{ fontSize: 'clamp(2rem, 3.5vw, 2.75rem)', lineHeight: 1.15 }}>
             Ergebnisse & Referenzflächen
           </h2>
-          <p className="font-body font-normal text-[rgba(255,255,255,0.6)] mt-3 text-lg max-w-[500px] mx-auto">
+          <p className="font-body font-normal text-[#64748B] mt-3 text-lg max-w-[500px] mx-auto">
             Überzeugen Sie sich selbst von sauberer Wirkung in Geschäfts-, Praxis- und Büroflächen.
           </p>
         </div>
@@ -186,7 +181,7 @@ export default function BeforeAfter() {
               onClick={() => setActiveIndex(i)}
               className={`relative w-24 h-16 md:w-32 md:h-20 rounded-xl overflow-hidden transition-all duration-200 ${
                 i === activeIndex
-                  ? 'ring-2 ring-teal ring-offset-2 ring-offset-primary-dark scale-105'
+                  ? 'ring-2 ring-teal ring-offset-2 ring-offset-[#F5F2EE] scale-105'
                   : 'opacity-60 hover:opacity-90'
               }`}
             >
